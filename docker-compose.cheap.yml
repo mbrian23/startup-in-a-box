@@ -1,0 +1,23 @@
+# Cheap-mode overlay for the demo stack.
+#
+# Layer on top of docker-compose.yml to pin every model to a cheap tier:
+#   docker compose -f docker-compose.yml -f docker-compose.cheap.yml up
+#
+# Or via Make:
+#   make compose-demo CHEAP=1
+#
+# Model names use the OpenRouter format (anthropic/<model>). If you
+# switch to the native Anthropic API, drop the prefix and use dated IDs:
+#   anthropic/claude-haiku-4.5  → claude-haiku-4-5-20251001
+
+services:
+  factory:
+    environment:
+      FACTORY_MODEL: anthropic/claude-haiku-4.5
+      SUBAGENT_MODEL: haiku
+
+  orchestrator:
+    environment:
+      ORCHESTRATOR_MODEL: gemini-3.1-flash-lite-preview
+      CEO_MODEL: gemini-3.1-flash-lite-preview
+      CTO_MODEL: gemini-3.1-flash-lite-preview

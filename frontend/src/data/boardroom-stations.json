@@ -1,0 +1,45 @@
+{
+  "stations": {
+    "ceo": {
+      "x": 6,
+      "y": 3,
+      "orientation": "down"
+    },
+    "reviewer": {
+      "x": 2,
+      "y": 4,
+      "orientation": "up"
+    },
+    "visionary": {
+      "x": 4,
+      "y": 6,
+      "orientation": "up"
+    },
+    "scout": {
+      "x": 7,
+      "y": 6,
+      "orientation": "up"
+    },
+    "blueprint": {
+      "x": 9,
+      "y": 6,
+      "orientation": "up"
+    },
+    "business-planner": {
+      "x": 3,
+      "y": 8,
+      "orientation": "up"
+    },
+    "strategist": {
+      "x": 6,
+      "y": 8,
+      "orientation": "up"
+    },
+    "cto": {
+      "x": 10,
+      "y": 8,
+      "orientation": "up"
+    }
+  },
+  "blockedOverrides": []
+}

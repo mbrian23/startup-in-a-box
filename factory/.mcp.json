@@ -1,0 +1,68 @@
+{
+  "_comment": "MCP tool declarations consumed by the Claude Agent SDK.",
+  "mcpServers": {
+    "factory_tools": {
+      "tools": [
+        {
+          "name": "ReadTool",
+          "description": "Read a file from the workspace.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "file_path": { "type": "string", "description": "Path relative to the workspace root." }
+            },
+            "required": ["file_path"]
+          }
+        },
+        {
+          "name": "WriteTool",
+          "description": "Write (create or overwrite) a file in the workspace.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "file_path": { "type": "string", "description": "Path relative to the workspace root." },
+              "content": { "type": "string", "description": "File content to write." }
+            },
+            "required": ["file_path", "content"]
+          }
+        },
+        {
+          "name": "EditTool",
+          "description": "Apply a search-and-replace edit to a file.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "file_path": { "type": "string", "description": "Path relative to the workspace root." },
+              "old_string": { "type": "string", "description": "Exact text to find." },
+              "new_string": { "type": "string", "description": "Replacement text." }
+            },
+            "required": ["file_path", "old_string", "new_string"]
+          }
+        },
+        {
+          "name": "GrepTool",
+          "description": "Search file contents in the workspace using grep.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "pattern": { "type": "string", "description": "Regular expression pattern." },
+              "path": { "type": "string", "description": "Path relative to workspace root (default: '.')." }
+            },
+            "required": ["pattern"]
+          }
+        },
+        {
+          "name": "BashTool",
+          "description": "Execute a shell command inside the workspace with a hard timeout.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "command": { "type": "string", "description": "Shell command to execute." }
+            },
+            "required": ["command"]
+          }
+        }
+      ]
+    }
+  }
+}

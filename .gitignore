@@ -1,0 +1,52 @@
+# Forensic logs (generated per-session, cleared by reset-demo.sh)
+logs/
+
+# Environment files with secrets (keep .example templates only)
+.env
+.env.local
+.env*.local
+.env.dev
+
+# macOS noise
+**/.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Node
+node_modules/
+dist/
+.vite/
+
+# PID files
+*.pid
+
+# Factory session state
+factory/.claude/*.local.*
+factory/workspace/
+
+# Next.js build output
+.next/
+
+# Local tool config
+.claude/*.local.*
+.playwright-mcp/
+
+# Asset source files (large)
+moderninteriors-win/
+
+# Screenshot artifacts
+boardroom-*.png
+
+# Tileset reference
+scripts/tile-reference.html
+
+# Claude Code dev-local config
+.claude-plugin/
+/commands/
+/hooks/
+
+# pytest cache
+**/.pytest_cache/

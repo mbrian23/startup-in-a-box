@@ -1,0 +1,63 @@
+# Demo-mode stack. `make dev` stays native — this is what `make demo-compose`
+# runs when you want three isolated images, remappable host ports, and a
+# clean `docker compose down` instead of brute-force port killing.
+#
+# Each service has its own Dockerfile in its subdirectory. Source is baked
+# into the images (no hot reload) — this mirrors `make demo`, not `make dev`.
+#
+# Copy `.env.docker.example` to `.env` to override host port mappings.
+
+name: sib
+
+services:
+  factory:
+    build: ./factory
+    image: sib-factory:demo
+    env_file: [./factory/.env]
+    environment:
+      # CORS origin tracks the browser-facing host port.
+      # JSON-encoded: pydantic-settings JSON-decodes list-typed OS env
+      # vars before the `_split_csv` validator runs, so a bare URL fails.
+      CORS_ORIGINS: '["http://localhost:${HOST_PORT_WEB:-3000}"]'
+    ports:
+      - "${HOST_PORT_FACTORY:-8888}:8888"
+    volumes:
+      # Per-run workspaces — persist so `_collect_artifacts` survives a restart.
+      - ./factory/workspace:/repo/factory/workspace
+      # Shared logs dir — all three services write to /repo/logs.
+      - ./logs:/repo/logs
+    restart: unless-stopped
+
+  orchestrator:
+    build: ./orchestrator
+    image: sib-orchestrator:demo
+    env_file: [./orchestrator/.env]
+    environment:
+      # Compose DNS, not localhost — orchestrator and factory share a network.
+      FACTORY_URL: "http://factory:8888/factory"
+      # JSON-encoded: pydantic-settings JSON-decodes list-typed OS env
+      # vars before the `_split_csv` validator runs, so a bare URL fails.
+      CORS_ORIGINS: '["http://localhost:${HOST_PORT_WEB:-3000}"]'
+    ports:
+      - "${HOST_PORT_ORCH:-8000}:8000"
+    volumes:
+      - ./logs:/repo/logs
+    depends_on:
+      - factory
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        # Baked into the bundle at build time — rebuild on port change.
+        NEXT_PUBLIC_FACTORY_URL: "http://localhost:${HOST_PORT_FACTORY:-8888}"
+    image: sib-frontend:demo
+    environment:
+      # Server-side fetches (Next.js API routes) use compose DNS.
+      ORCHESTRATOR_URL: "http://orchestrator:8000/orchestrator"
+    ports:
+      - "${HOST_PORT_WEB:-3000}:3000"
+    depends_on:
+      - orchestrator
+    restart: unless-stopped

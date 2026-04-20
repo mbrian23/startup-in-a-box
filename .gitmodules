@@ -1,0 +1,4 @@
+[submodule "factory/vendor/caveman"]
+	path = factory/vendor/caveman
+	url = https://github.com/JuliusBrussee/caveman.git
+	branch = main

@@ -1,0 +1,18 @@
+{"type":"RUN_STARTED","threadId":"test-thread-001","runId":"run-001","timestamp":"2026-04-12T10:00:00Z"}
+{"type":"STATE_DELTA","threadId":"test-thread-001","runId":"run-001","delta":{"target_audience":{"segments":["Pedestrians in busy urban areas","Elderly and mobility-impaired individuals","Parents with young children"]}},"timestamp":"2026-04-12T10:00:02Z"}
+{"type":"STATE_DELTA","threadId":"test-thread-001","runId":"run-001","delta":{"value_proposition":{"hook":"Cross the street safely with a personal escort","pain_points":["Dangerous intersections","Long wait times","Accessibility challenges"]}},"timestamp":"2026-04-12T10:00:04Z"}
+{"type":"STATE_DELTA","threadId":"test-thread-001","runId":"run-001","delta":{"feature_list":{"features":["Real-time crossing request","GPS-matched escort dispatch","Accessibility mode"]}},"timestamp":"2026-04-12T10:00:06Z"}
+{"type":"TOOL_CALL_START","threadId":"test-thread-001","runId":"run-001","toolCallId":"tc-delegate-001","toolCallName":"delegate_to_factory","timestamp":"2026-04-12T10:00:08Z"}
+{"type":"STATE_DELTA","threadId":"test-thread-001","runId":"run-001","delta":{"handoff_stage":"preparing"},"timestamp":"2026-04-12T10:00:08.100Z"}
+{"type":"STATE_DELTA","threadId":"test-thread-001","runId":"run-001","delta":{"handoff_stage":"launched"},"timestamp":"2026-04-12T10:00:09.600Z"}
+{"type":"RUN_STARTED","threadId":"test-thread-001","runId":"run-factory-001","timestamp":"2026-04-12T10:00:09.700Z","source":"factory"}
+{"type":"STATE_DELTA","threadId":"test-thread-001","runId":"run-factory-001","delta":{"current_step":"step-1","progress":{"steps_completed":0,"steps_total":3}},"timestamp":"2026-04-12T10:00:10Z","source":"factory"}
+{"type":"TOOL_CALL_START","threadId":"test-thread-001","runId":"run-factory-001","toolCallId":"tc-write-001","toolCallName":"request_approval","timestamp":"2026-04-12T10:00:12Z","source":"factory"}
+{"type":"TOOL_CALL_END","threadId":"test-thread-001","runId":"run-factory-001","toolCallId":"tc-write-001","toolCallName":"request_approval","result":{"approved":true},"timestamp":"2026-04-12T10:00:15Z","source":"factory"}
+{"type":"STATE_DELTA","threadId":"test-thread-001","runId":"run-factory-001","delta":{"current_step":"step-2","progress":{"steps_completed":1,"steps_total":3}},"timestamp":"2026-04-12T10:00:16Z","source":"factory"}
+{"type":"STATE_DELTA","threadId":"test-thread-001","runId":"run-factory-001","delta":{"current_step":"step-3","progress":{"steps_completed":2,"steps_total":3}},"timestamp":"2026-04-12T10:00:18Z","source":"factory"}
+{"type":"STATE_DELTA","threadId":"test-thread-001","runId":"run-factory-001","delta":{"progress":{"steps_completed":3,"steps_total":3}},"timestamp":"2026-04-12T10:00:20Z","source":"factory"}
+{"type":"RUN_FINISHED","threadId":"test-thread-001","runId":"run-factory-001","timestamp":"2026-04-12T10:00:20.100Z","source":"factory"}
+{"type":"STATE_DELTA","threadId":"test-thread-001","runId":"run-001","delta":{"handoff_stage":"returned"},"timestamp":"2026-04-12T10:00:20.500Z"}
+{"type":"TOOL_CALL_END","threadId":"test-thread-001","runId":"run-001","toolCallId":"tc-delegate-001","toolCallName":"delegate_to_factory","timestamp":"2026-04-12T10:00:20.600Z"}
+{"type":"RUN_FINISHED","threadId":"test-thread-001","runId":"run-001","timestamp":"2026-04-12T10:00:22Z"}

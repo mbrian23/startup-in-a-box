@@ -1,0 +1,10 @@
+node_modules/
+.next/
+.turbo/
+tests/
+coverage/
+*.log
+Dockerfile
+.env
+.env.*
+!.env.example
