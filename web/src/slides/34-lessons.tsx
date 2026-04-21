@@ -60,7 +60,7 @@ export default function Slide34({}: SlideProps) {
             </div>
             <div className="grid grid-cols-[140px_1fr] gap-3 items-start">
               <img
-                src="/pili-tiles.jpg"
+                src="/deck/pili-tiles.jpg"
                 alt="Pili moviendo tiles a mano en una webapp chiquita de clasificación de tiles"
                 className="w-full h-auto border-2 border-cream"
               />
