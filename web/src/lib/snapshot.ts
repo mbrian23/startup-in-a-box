@@ -17,7 +17,7 @@ let cache: Snapshot | null = null;
 export async function loadSnapshot(): Promise<Snapshot> {
   if (cache) return cache;
   try {
-    const res = await fetch('/snapshot.json', { cache: 'force-cache' });
+    const res = await fetch('/deck/snapshot.json', { cache: 'force-cache' });
     if (!res.ok) throw new Error(`snapshot ${res.status}`);
     const json = (await res.json()) as Snapshot;
     cache = json;
