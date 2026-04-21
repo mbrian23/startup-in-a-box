@@ -10,11 +10,11 @@ const nextConfig: NextConfig = {
     return [
       {
         source: "/deck",
-        destination: "https://startup-deck-seven.vercel.app/",
+        destination: "https://startup-deck-seven.vercel.app/deck",
       },
       {
         source: "/deck/:path*",
-        destination: "https://startup-deck-seven.vercel.app/:path*",
+        destination: "https://startup-deck-seven.vercel.app/deck/:path*",
       },
     ];
   },
