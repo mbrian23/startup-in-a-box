@@ -1,0 +1,26 @@
+# Startup in a Box — live demo
+
+> A dual-screen, multi-agent live demo by Martin Brian. You type a startup idea;
+> two agent frameworks conspire and ship a real Next.js app to a real Vercel URL,
+> live on stage. One screen is a boardroom (Google ADK), the other a factory
+> (Claude Agent SDK).
+
+This page (https://startupinabox.martinbrian.com) is the demo's front end.
+
+## How it works
+
+- Boardroom (Google ADK): a CEO agent runs seven specialists and produces a typed Lean Canvas + BuildPlan.
+- Factory (Claude Agent SDK): a supervisor delegates to five subagents and doesn't stop until the DevOps agent deploys to Vercel.
+- The two are wired with the AG-UI protocol; one typed POST connects planning to building.
+
+## Related
+
+- [Slides / deck](https://startup-deck.martinbrian.com): the talk deck behind this demo.
+- [Talks index](https://talks.martinbrian.com): all of Martin Brian's talks.
+- [Portfolio](https://martinbrian.com): Martin Brian — Senior AI Engineer.
+- [Source on GitHub](https://github.com/mbrian23/startup-in-a-box): full repo (ADK boardroom + Claude Agent SDK factory).
+
+## Notes for agents
+
+This is a live, interactive demo, not static content. The architecture and
+write-up live in the GitHub repo's README and docs/diagrams.

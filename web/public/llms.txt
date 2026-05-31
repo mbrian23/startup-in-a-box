@@ -1,0 +1,21 @@
+# Startup in a Box — slides
+
+> The talk deck by Martin Brian on building agentic systems with Google ADK and
+> the Claude Agent SDK used together. How two frameworks — a boardroom that plans
+> and a factory that builds — ship a startup while you watch.
+
+This page (https://startup-deck.martinbrian.com) is the slide deck.
+
+## What the talk covers
+
+- Why two frameworks: Google ADK for high-level reasoning with typed artifacts; Claude Agent SDK for real filesystem/shell work in a loop.
+- The boardroom (ADK): CEO agent + seven specialists → typed Lean Canvas + BuildPlan.
+- The factory (Claude Agent SDK): supervisor + five subagents → deploys to Vercel.
+- The AG-UI protocol seam that connects planning to building with one typed POST.
+
+## Related
+
+- [Live demo](https://startupinabox.martinbrian.com): the running dual-screen demo.
+- [Talks index](https://talks.martinbrian.com): all of Martin Brian's talks.
+- [Portfolio](https://martinbrian.com): Martin Brian — Senior AI Engineer.
+- [Source on GitHub](https://github.com/mbrian23/startup-in-a-box): full repo.
