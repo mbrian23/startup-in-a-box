@@ -3,7 +3,11 @@ import type { NextRequest } from "next/server";
 import { Agent, setGlobalDispatcher } from "undici";
 
 export const runtime = "nodejs";
-export const maxDuration = 3600;
+// 300s is the Vercel plan ceiling (Hobby). The git build validates this; the
+// older CLI deploy skipped validation, which is why 3600 slipped through. On
+// Pro you can raise this to 800 (Fluid Compute). The orchestrator SSE stream
+// must finish within this window when proxied through Vercel.
+export const maxDuration = 300;
 
 setGlobalDispatcher(new Agent({ bodyTimeout: 0, headersTimeout: 0 }));
 
